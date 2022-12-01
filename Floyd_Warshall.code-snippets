@@ -1,0 +1,25 @@
+{
+	"Floyd_Warshall": {
+		"prefix": "Floyd_Warshall",
+		"body": [
+		  "",
+		  "vector<vector<int>> Floyd_Warshall(vector<vector<int>>& arr, vector<vector<int>> weight){",
+		  "    for(int i = 0; i<arr.size(); i++){",
+		  "        weight[i][i] = 0;",
+		  "    }",
+		  "    for(int k = 0 ; k<arr.size(); k++){",
+		  "        for(int i = 0; k<arr.size(); k++){",
+		  "            for(int j = 0; j<arr.size(); j++){",
+		  "                if(weight[i][k] + weight[k][j] < weight[i][j]){",
+		  "                    weight[i][j] = weight[i][k]+weight[k][j];",
+		  "                }",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "    return weight;",
+		  "}",
+		  ""
+		],
+		"description": "Floyd_Warshall"
+	  }
+}

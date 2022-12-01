@@ -1,0 +1,18 @@
+{
+	"iterative": {
+		"prefix": "iterative_binary_exponentiation",
+		"body": [
+		  "int iterative_binary_exponentiation(int number, int power){",
+		  "  int ans = 1;",
+		  "  while(power > 0){",
+		  "      if(power&1)",
+		  "      ans = ans*number;",
+		  "      number = number * number;",
+		  "      power>>=1;",
+		  "  }",
+		  "  return ans;",
+		  "}"
+		],
+		"description": "iterative"
+	  }
+}

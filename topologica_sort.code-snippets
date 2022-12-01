@@ -1,0 +1,32 @@
+{
+	"topological-sort": {
+		"prefix": "topological_sort",
+		"body": [
+		  "void topological(int curr , vector<vector<int>>&arr , stack<int>&att, vector<bool>&visited){",
+		  "  visited[curr] =  true;",
+		  "  for(auto c: arr[curr]){",
+		  "    if(!visited[c]){",
+		  "      topological(c,arr,att,visited);",
+		  "    }",
+		  "  }",
+		  "  att.push(curr);",
+		  "}",
+		  "",
+		  "vector<int> topologicalSort(vector<vector<int>>&arr){",
+		  "  vector<bool>visited(arr.size(),false);",
+		  "  stack<int>att;",
+		  "  for(int i = 0; i<arr.size(); i++){",
+		  "    if(!visited[i])",
+		  "       topological(i,arr,att,visited);",
+		  "  }",
+		  "  vector<int>ans;",
+		  "  while(!att.empty()){",
+		  "    ans.push_back(att.top());",
+		  "    att.pop();",
+		  "  }",
+		  "  return ans;",
+		  "}"
+		],
+		"description": "topological-sort"
+	  }
+}

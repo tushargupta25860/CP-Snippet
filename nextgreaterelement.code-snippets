@@ -1,0 +1,28 @@
+{
+	"recursive": {
+		"prefix": " nextgreaterelement",
+		"body": [
+		  "vector<int> nextgreaterelement(vector<int>&arr, int n){",
+		  "  stack<PII>att;",
+		  "  att.push({arr[0],0});",
+		  "  vector<int>ans(n);",
+		  "  int i = 1;",
+		  "  while(i<n && !att.empty()){",
+		  "      while(!att.empty() && arr[i]>att.top().first){",
+		  "         PII aa = att.top();",
+		  "         ans[aa.second] = arr[i];",
+		  "         att.pop();",
+		  "      }",
+		  "      att.push({arr[i],i});",
+		  "      i++;",
+		  "  }",
+		  "  while(!att.empty()){",
+		  "    ans[att.top().second]=-1;",
+		  "    att.pop();",
+		  "  }",
+		  "  return ans;",
+		  "}"
+		],
+		"description": "recursive"
+	  }
+}

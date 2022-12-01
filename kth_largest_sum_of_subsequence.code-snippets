@@ -1,0 +1,30 @@
+{
+	"kth_largest_sum_of_subsequence": {
+		"prefix": "kth_largest_sum_of_subsequence",
+		"body": [
+		  "typedef pair<long long, int> pli;",
+		  "    long long kSum(vector<int>& A, int K) {",
+		  "        int n = A.size();",
+		  "        long long sm = 0, neg = 0;",
+		  "        for (int i = 0; i < n; i++) {",
+		  "            sm += A[i];",
+		  "            if (A[i] < 0) neg += A[i], A[i] = -A[i];",
+		  "        }",
+		  "",
+		  "        long long ans = sm - neg;",
+		  "        sort(A.begin(), A.end());",
+		  "        priority_queue<pli, vector<pli>, greater<pli>> pq;",
+		  "        pq.push(pli(A[0], 0));",
+		  "        for (int i = 2; i <= K; i++) {",
+		  "            pli p = pq.top(); pq.pop();",
+		  "            ans = sm - (p.first + neg);",
+		  "            if (p.second == n - 1) continue;",
+		  "            pq.push(pli(p.first + A[p.second + 1], p.second + 1));",
+		  "            pq.push(pli(p.first - A[p.second] + A[p.second + 1], p.second + 1));",
+		  "        }",
+		  "        return ans;",
+		  "    }"
+		],
+		"description": "kth_largest_sum_of_subsequence"
+	  }
+}

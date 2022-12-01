@@ -1,0 +1,43 @@
+{
+	"DSU": {
+		"prefix": "DSU",
+		"body": [
+		  "",
+		  "class DSU{",
+		  "   vector<int>parent;",
+		  "   vector<int>size;",
+		  "   int n;",
+		  "   int comp;",
+		  "   public:",
+		  "   DSU(int n){",
+		  "    parent.resize(n+1);",
+		  "    size.resize(n+1);",
+		  "    for(int i = 0; i<=n; i++){",
+		  "        size[i] = 1;",
+		  "        parent[i] = i;",
+		  "    }",
+		  "    parent[n] = 0;",
+		  "    comp = n;",
+		  "   }",
+		  "   int get(int a){",
+		  "    return (a == parent[a])?(a):(parent[a] = get(parent[a]));",
+		  "   }",
+		  "   void unite(int a , int b){",
+		  "      a = get(a);",
+		  "      b = get(b);",
+		  "      if(a!=b){",
+		  "        if(size[b]>=size[a])",
+		  "        swap(a,b);",
+		  "        size[a]+=size[b];",
+		  "        parent[b] = a;",
+		  "        comp--;",
+		  "      }",
+		  "   }",
+		  "   int get_comp(){",
+		  "    return comp;",
+		  "   }",
+		  "};"
+		],
+		"description": "DSU"
+	  }
+}

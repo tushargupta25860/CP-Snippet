@@ -1,0 +1,34 @@
+{
+	"Bellman_ford": {
+		"prefix": "Bellman_ford",
+		"body": [
+		  "vector<int> Bellman_ford(vector<vector<int>>& arr, vector<vector<int>>& weight, int node, int edges){",
+		  "    vector<int>dist(arr.size(),INT_MAX);",
+		  "    dist[node] = 0;",
+		  "    int v = arr.size()-1;",
+		  "    while(v--){",
+		  "    for(int i = 0; i<arr.size(); i++){",
+		  "        for(int j = 0; j<arr[i].size(); j++){",
+		  "            if(dist[arr[i][j]] > dist[i] + weight[i][arr[i][j]]){",
+		  "                dist[arr[i][j]] = dist[i] + weight[i][arr[i][j]];",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "    }",
+		  "    vector<int>ans = dist;",
+		  "    for(int i = 0; i<arr.size(); i++){",
+		  "        for(int j = 0; j<arr[i].size(); j++){",
+		  "            if(dist[arr[i][j]] > dist[i] + weight[i][arr[i][j]]){",
+		  "                dist[arr[i][j]] = dist[i] + weight[i][arr[i][j]];",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "    if(dist != ans){",
+		  "        return {-1};",
+		  "    }",
+		  "    return ans;",
+		  "}"
+		],
+		"description": "Bellman_ford"
+	  }
+}

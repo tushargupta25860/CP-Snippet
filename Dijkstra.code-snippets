@@ -1,0 +1,25 @@
+{
+	"Dijkstra": {
+		"prefix": "Dijkstra",
+		"body": [
+		  "vector<int> dijkistra(vector<vector<int>>& arr, vector<vector<int>>& weight){",
+		  "      priority_queue<pair<int,int>,vector<pair<int,int>> , greater<pair<int,int>>> att;",
+		  "      att.push({0,0});",
+		  "      vector<int>dist(arr.size()+1,LLONG_MAX);",
+		  "      dist[0] = 0;",
+		  "      while(!att.empty()){",
+		  "        auto  it  = att.top();",
+		  "        att.pop();",
+		  "        for(auto c: arr[it.second]){",
+		  "            if(dist[c] > dist[it.second] + weight[it.second][c]){",
+		  "                dist[c] = dist[it.second] + weight[it.second][c];",
+		  "                att.push({dist[c],c});",
+		  "            }",
+		  "        }",
+		  "      }",
+		  "      return dist;",
+		  "}"
+		],
+		"description": "Dijkstra"
+	  }
+}
